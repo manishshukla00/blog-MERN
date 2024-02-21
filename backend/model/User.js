@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  name: {
+  username: {
     type: String,
     required: true,
   },
@@ -17,3 +17,5 @@ const userSchema = new Schema({
     minlength: 6,
   },
 });
+
+export default mongoose.model("User", userSchema);
