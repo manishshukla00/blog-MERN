@@ -1,18 +1,65 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Box, Button } from "@mui/material";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  Button,
+  Tabs,
+  Tab,
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const [value, setValue] = useState();
+  const isLogedIn = useSelector((state) => state.isLogedIn);
   return (
-    <AppBar style={{ background: "orange" }}>
+    <AppBar position="sticky" style={{ background: "orange" }}>
       <Toolbar>
         <Typography variant="h4">Blogs-App</Typography>
+        {isLogedIn && (
+          <Box display="flex" marginRight="auto" marginLeft="auto">
+            <Tabs
+              textColor="inherit"
+              value={value}
+              onChange={(e, val) => setValue(val)}
+            >
+              <Tab LinkComponent={Link} to="/blogs" label="All Blogs" />
+              <Tab LinkComponent={Link} to="/myBlogs" label="My Blogs" />
+            </Tabs>
+          </Box>
+        )}
         <Box display="flex" marginLeft="auto">
-          <Button sx={{ margin: 1, borderRadius: 10 }} variant="contained">
-            Login
-          </Button>
-          <Button sx={{ margin: 1, borderRadius: 10 }} variant="contained">
-            Signup
-          </Button>
+          {isLogedIn ? (
+            <Button
+              LinkComponent={Link}
+              to="/auth"
+              sx={{ margin: 1, borderRadius: 10 }}
+              variant="contained"
+            >
+              Logout
+            </Button>
+          ) : (
+            <>
+              <Button
+                LinkComponent={Link}
+                to="/auth"
+                sx={{ margin: 1, borderRadius: 10 }}
+                variant="contained"
+              >
+                Login
+              </Button>
+              <Button
+                LinkComponent={Link}
+                to="/auth"
+                sx={{ margin: 1, borderRadius: 10 }}
+                variant="contained"
+              >
+                Signup
+              </Button>
+            </>
+          )}
         </Box>
       </Toolbar>
     </AppBar>
