@@ -31,23 +31,22 @@ const Auth = () => {
       })
       .catch((err) => console.log(err));
     const data = await res.data;
+    console.log(data);
     return data;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
     if (isSignup) {
       sendRequest("signup")
+        .then((data) => localStorage.setItem("userId", data.user._id))
         .then(() => dispatch(authActions.login()))
-        .then(() => navigate("/blogs"))
-        .then((data) => console.log(data));
+        .then(() => navigate("/blogs"));
     } else {
       sendRequest()
+        .then((data) => localStorage.setItem("userId", data.user._id))
         .then(() => dispatch(authActions.login()))
-        .then(() => dispatch(authActions.login()))
-        .then(() => navigate("/blogs"))
-        .then((data) => console.log(data));
+        .then(() => navigate("/blogs"));
     }
   };
 

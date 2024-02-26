@@ -4,7 +4,7 @@ import Blog from "../model/blog.js";
 
 export const getAllBlog = async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().populate("user");
     if (!blogs) {
       return res.status(404).json({ message: "No Blogs Found" });
     }
@@ -50,10 +50,14 @@ export const addBlog = async (req, res) => {
 };
 
 export const updateBlog = async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, image } = req.body;
   const blogId = req.params.id;
   try {
-    const blog = await Blog.findByIdAndUpdate(blogId, { title, description });
+    const blog = await Blog.findByIdAndUpdate(blogId, {
+      title,
+      description,
+      image,
+    });
     if (!blog) {
       return res.status(500).json({ message: "Unable To Update The Blog" });
     }
