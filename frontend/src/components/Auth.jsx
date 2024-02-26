@@ -24,7 +24,7 @@ const Auth = () => {
 
   const sendRequest = async (type = "login") => {
     const res = await axios
-      .post(`http://localhost:5000/api/user/${type}`, {
+      .post(`https://blog-mern-39f5.onrender.com/api/user/${type}`, {
         username: inputs.username,
         email: inputs.email,
         password: inputs.password,
