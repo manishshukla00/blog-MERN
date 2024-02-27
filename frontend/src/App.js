@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import Auth from "./components/Auth";
@@ -7,9 +7,19 @@ import UserBlogs from "./components/UserBlogs";
 import AddBlog from "./components/AddBlog";
 import BlogDetail from "./components/BlogDetail";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { authActions } from "./store";
 
 const App = () => {
   const isLogedIn = useSelector((state) => state.isLogedIn);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (localStorage.getItem("userId")) {
+      dispatch(authActions.login());
+    }
+  }, [dispatch]);
+
   return (
     <>
       <Header />
