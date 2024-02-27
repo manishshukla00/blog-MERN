@@ -1,17 +1,15 @@
 import express from "express";
 import router from "./routes/user-routes.js";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import blogRouter from "./routes/blog-routes.js";
 import cors from "cors";
 
 const app = express();
-dotenv.config();
 app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect("mongodb+srv://mern-blog:mern@mern-blog.ywiyggn.mongodb.net/blog")
   .then(() => {
     console.log("MongoDB connected");
   })
