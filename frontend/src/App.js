@@ -24,9 +24,9 @@ const App = () => {
     <>
       <Header />
       <Routes>
+        <Route path="/auth" element={<Auth />} />
         {isLogedIn && (
           <>
-            <Route path="/auth" element={<Auth />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/myBlogs" element={<UserBlogs />} />
             <Route path="/myBlogs/:id" element={<BlogDetail />} />
