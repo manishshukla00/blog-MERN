@@ -63,20 +63,19 @@ const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
           title={title}
           subheader={new Date().toLocaleDateString()}
         />
-        {/* <CardMedia
+        <CardMedia
           component="img"
           style={mediaStyle}
-          height="400"
           image={imageUrl}
           alt={username}
-        /> */}
-        <div className="w-full h-full">
+        />
+        {/* <div className="w-full h-full">
           <img
             className="w-full h-[500px] object-cover rounded-lg"
             src={imageUrl}
             alt={username}
           />
-        </div>
+        </div> */}
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             {description}
