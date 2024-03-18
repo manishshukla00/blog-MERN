@@ -15,6 +15,11 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import axios from "axios";
 
 const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
+  const mediaStyle = {
+    height: 600,
+    objectFit: "cover",
+  };
+
   console.log(id);
   const navigate = useNavigate();
   const handleEdit = (e) => {
@@ -60,7 +65,7 @@ const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
         />
         <CardMedia
           component="img"
-          className="object-cover"
+          style={mediaStyle}
           height="400"
           image={imageUrl}
           alt={username}
