@@ -71,7 +71,7 @@ const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
           alt={username}
         /> */}
         <img
-          className="w-[400px] h-[400px] object-cover rounded-lg"
+          className="w-full h-auto object-cover rounded-lg"
           src={imageUrl}
           alt={username}
         />
