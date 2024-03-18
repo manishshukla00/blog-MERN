@@ -16,7 +16,7 @@ import axios from "axios";
 
 const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
   const mediaStyle = {
-    height: 600,
+    height: 400,
     objectFit: "contain",
   };
 
