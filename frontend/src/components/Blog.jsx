@@ -66,6 +66,7 @@ const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
         <CardMedia
           component="img"
           style={mediaStyle}
+          s
           image={imageUrl}
           alt={username}
         />
