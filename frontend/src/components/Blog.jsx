@@ -63,11 +63,16 @@ const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
           title={title}
           subheader={new Date().toLocaleDateString()}
         />
-        <CardMedia
+        {/* <CardMedia
           component="img"
           style={mediaStyle}
           height="400"
           image={imageUrl}
+          alt={username}
+        /> */}
+        <img
+          className="w-[400px] h-[400px] object-cover rounded-lg"
+          src={imageUrl}
           alt={username}
         />
         <CardContent>
