@@ -60,7 +60,8 @@ const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
         />
         <CardMedia
           component="img"
-          height="600"
+          className="object-cover"
+          height="400"
           image={imageUrl}
           alt={username}
         />
