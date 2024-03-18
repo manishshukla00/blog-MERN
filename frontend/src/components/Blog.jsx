@@ -70,11 +70,13 @@ const Blog = ({ title, description, imageUrl, username, isUser, id }) => {
           image={imageUrl}
           alt={username}
         /> */}
-        <img
-          className="w-full h-[500px] object-cover rounded-lg"
-          src={imageUrl}
-          alt={username}
-        />
+        <div className="w-full h-full">
+          <img
+            className="w-full h-[500px] object-cover rounded-lg"
+            src={imageUrl}
+            alt={username}
+          />
+        </div>
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             {description}
